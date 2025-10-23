@@ -1,0 +1,13 @@
+[Unit]
+Description=Мониторинг API test при запущенном процессе test
+After=network.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=/home/limbles/test/monitoring.sh  # Путь к скрипту
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

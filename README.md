@@ -5,29 +5,44 @@
 <Установка и запуск>
 
 
-Клонируйте репозиторий: git clone <repo-url>.
-
-Перейдите в директорию: cd <name_repo>.
-
-Сделайте скрипт исполняемым: chmod +x monitoring.sh.
+Клонируйте репозиторий: 
+```
+git clone <repo-url>.
+```
+Перейдите в директорию: 
+```
+cd <name_repo>.
+```
+Сделайте скрипт исполняемым: 
+```
+chmod +x monitoring.sh
+```
 
 Добавьте  файл monitoring.service  в путь /etc/systemd/system (для автоматического запуска с вашей ОС)
 
-Запустите вручную (работает если вы в той же директории,  что и bash-cкрипт): ./monitoringt.sh (опционально с флагами, см. ниже).
+Запустите вручную (работает если вы в той же директории,  что и bash-cкрипт): 
 
-Или же запустите, как sudo systemctl start monitoring.service
-
+```
+./monitoringt.sh
+```
+Или же запустите, как 
+```
+sudo systemctl start monitoring.service
+```
 <P.S. Важно! Если вы запускаете через systemctl, то перед стартом выполните следующие действия:
 
+```
 sudo systemctl daemon-reload
 sudo  systemctl start monitoring.service
-
+```
 И только после запуска через systemctl введите:
 
-sudo systemctl status monitoring.service (проверка статуса).
-
+```
+sudo systemctl status monitoring.service
+#проверка статуса
+```
 Корректный вывод будет примерно таким:
-
+```
  monitoring.service - Мониторинг API test при запущенном процессе test
      Loaded: loaded (/etc/systemd/system/monitoring.service; enabled; preset: disabled)
      Active: active (running) since Fri 2025-10-24 14:26:47 MSK; 7s ago
@@ -41,7 +56,7 @@ sudo systemctl status monitoring.service (проверка статуса).
              └─3953 sleep 60
 
 окт 24 14:26:47 limbless systemd[1]: Started monitoring.service - Мониторинг API test при запущенном процессе test.>
-
+```
 <Основные функции>
 
 1. Запускается при запуске системы (через init);
